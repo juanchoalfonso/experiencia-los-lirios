@@ -1,71 +1,109 @@
-/* Importing fonts from Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Montserrat:wght@300;500&display=swap');
+/* =========================================
+   EXPERIENCIA LOS LIRIOS - CSS PRINCIPAL
+   ========================================= */
 
+/* 1. Importación de Fuentes */
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&display=swap');
+
+/* 2. Variables de Marca */
 :root {
-    /* Brand Colors based on manual */
-    --primary-color: #371459;    /* Deep Purple from manual */
-    --secondary-color: #765f9b;  /* Medium Purple */
-    --accent-color: #9b8db5;     /* Light Purple/Lavender */
-    --bg-light: #ececec;         /* Light Grey background */
-    --text-dark: #2C2C2C;
+    --primary-color: #371459;    /* Violeta Oscuro */
+    --secondary-color: #765f9b;  /* Violeta Medio */
+    --accent-color: #9b8db5;     /* Lavanda */
+    --bg-light: #ececec;         /* Gris Claro */
     --white: #FFFFFF;
+    --text-dark: #2C2C2C;
     --transition: all 0.3s ease;
 }
 
-/* Base Styles */
+/* 3. Estilos Globales */
+/* 3. Estilos Globales */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+html, body {
+    overflow-x: hidden; /* Esto mata cualquier scroll horizontal fantasma */
+    width: 100%;
+}
+
 body {
-    font-family: 'Montserrat', sans-serif;
-    background-color: var(--bg-light);
+    font-family: 'Raleway', sans-serif;
+    font-weight: 300; 
+    background-color: var(--white);
     color: var(--text-dark);
     line-height: 1.6;
 }
 
-/* Titles with the elegant font */
 h1, h2, h3 {
-    font-family: 'Cormorant Garamond', serif;
+    font-weight: 700;
     color: var(--primary-color);
     text-transform: uppercase;
     letter-spacing: 2px;
 }
 
-/* Header & Navbar */
+h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+/* =========================================
+   HEADER Y NAVEGACIÓN (PC)
+   ========================================= */
 .main-header {
     background-color: var(--white);
-    padding: 1rem 5%;
-    position: sticky;
+    padding: 1.2rem 5%;
+    position: fixed;
+    width: 100%;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 15px rgba(0,0,0,0.05);
 }
 
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
+    position: relative; /* Clave para el menú mobile */
 }
 
-.brand-logo img {
-    height: 50px;
+/* Logo dual */
+.brand-logo a {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    text-decoration: none;
+}
+
+.logo-icon {
+    height: 65px;
+    border-radius: 4px;
     width: auto;
 }
 
+.logo-text {
+    height: 38px;
+    width: auto;
+}
+
+/* Enlaces del menú */
 .nav-links {
     display: flex;
     list-style: none;
-    gap: 2rem;
+    gap: 2.5rem;
     align-items: center;
 }
 
 .nav-links a {
     text-decoration: none;
-    color: var(--primary-color);
-    font-weight: 500;
+    color: var(--text-dark);
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 1px;
     transition: var(--transition);
 }
 
@@ -73,29 +111,237 @@ h1, h2, h3 {
     color: var(--secondary-color);
 }
 
-/* Hero Section */
+/* Botón Reservas en el Menú */
+.btn-reservation {
+    background-color: var(--primary-color);
+    color: var(--white) !important;
+    padding: 0.8rem 1.8rem;
+    border: 2px solid var(--primary-color);
+    border-radius: 4px;
+    text-transform: uppercase;
+    transition: var(--transition);
+}
+
+.btn-reservation:hover {
+    background-color: transparent;
+    color: var(--primary-color) !important;
+}
+
+/* Ocultar icono de menú en PC */
+.mobile-menu-icon {
+    display: none;
+    font-size: 2rem;
+    color: var(--primary-color);
+    cursor: pointer;
+}
+
+/* =========================================
+   HERO SECTION (Portada)
+   ========================================= */
 .hero {
-    height: 80vh;
-    background: linear-gradient(rgba(55, 20, 89, 0.6), rgba(55, 20, 89, 0.2)), url('../assets/hero-bg.jpg');
+    height: 100vh;
+    background: url('../assets/images/WhatsApp%20Image%202026-04-14%20at%2021.49.19%20(1).jpeg');
     background-size: cover;
     background-position: center;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--white);
+    text-align: center;
+    padding-top: 80px; 
+}
+
+.hero-content {
+    background: rgba(255, 255, 255, 0.85); 
+    padding: 3rem 2rem;
+    border-radius: 12px;
+    width: 90%; 
+    max-width: 700px; 
+    margin: 0 auto;
     text-align: center;
 }
 
-.hero h1 {
-    font-size: 3.5rem;
-    color: var(--white);
+/* Evitar saltos de línea innecesarios en el HTML */
+.hero h1 br {
+    display: none; 
 }
 
-/* WhatsApp Button */
+/* "Experiencia" */
+.hero h1 {
+    color: var(--primary-color);
+    text-transform: uppercase;
+    font-size: clamp(1.2rem, 3vw, 1.8rem); 
+    font-weight: 400; /* Regular */
+    letter-spacing: 0.5em; 
+    margin-right: -0.5em; /* Compensa el último espacio para centrar bien */
+    line-height: 1.2;
+    margin-bottom: 0;
+}
+
+/* "Los Lirios" */
+.hero h1 span {
+    display: block; 
+    font-size: clamp(2.5rem, 8vw, 5.5rem); /* Magia de adaptación automática */
+    font-weight: 300; /* Light */
+    letter-spacing: 2px;
+    margin-right: 0; 
+    margin-top: 5px;
+    line-height: 1;
+}
+
+/* "Momentos inolvidables..." */
+.hero p {
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    font-weight: 500;
+    margin-bottom: 2.5rem;
+    margin-top: 1.5rem;
+}
+
+/* Botón Descubrir Más */
+.btn-outline {
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 1rem 3rem;
+    font-size: 1rem;
+    border: 2px solid var(--primary-color);
+    border-radius: 4px;
+    text-transform: uppercase;
+    font-weight: 600;
+    text-decoration: none;
+    transition: var(--transition);
+    display: inline-block;
+}
+
+.btn-outline:hover {
+    background-color: transparent;
+    color: var(--primary-color);
+}
+
+/* =========================================
+   SECCIONES DE CONTENIDO
+   ========================================= */
+.section-padding {
+    padding: 100px 5%;
+}
+
+.grid-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.image-content img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+/* Servicios */
+.bg-alt {
+    background-color: var(--bg-light);
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.service-card {
+    background: var(--white);
+    padding: 2.5rem;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+}
+
+.service-card i {
+    font-size: 2.5rem;
+    color: var(--secondary-color);
+    margin-bottom: 1.5rem;
+}
+
+.service-card ul {
+    list-style: none;
+    margin-top: 1rem;
+    text-align: left;
+}
+
+.service-card li {
+    margin-bottom: 0.5rem;
+}
+
+.service-card li::before {
+    content: "•";
+    color: var(--accent-color);
+    font-weight: bold;
+    margin-right: 8px;
+}
+
+/* Imagen Divisora */
+.image-divider {
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+}
+
+.image-divider img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Mapa y Ubicación */
+.map-container {
+    margin: 2rem 0;
+}
+
+.rating-badge {
+    text-align: center;
+}
+
+.score {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.stars {
+    color: #f5b301;
+    margin-bottom: 2rem;
+}
+
+.reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.review-card {
+    background: var(--bg-light);
+    padding: 1.5rem;
+    border-radius: 8px;
+}
+
+/* =========================================
+   FOOTER Y WHATSAPP FLOTANTE
+   ========================================= */
+.main-footer {
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 3rem 5%;
+    text-align: center;
+}
+
 .whatsapp-float {
     position: fixed;
-    bottom: 20px;
-    right: 20px;
+    bottom: 30px;
+    right: 30px;
     background-color: #25d366;
     color: white;
     width: 60px;
@@ -104,8 +350,77 @@ h1, h2, h3 {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 30px;
+    font-size: 35px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-    z-index: 1000;
+    z-index: 1001;
     text-decoration: none;
+    transition: transform 0.3s;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1);
+}
+
+/* =========================================
+   RESPONSIVE (MÓVIL)
+   ========================================= */
+@media (max-width: 768px) {
+    /* 1. Header y Logo con tamaño digno */
+    .mobile-menu-icon {
+        display: block;
+    }
+
+    .logo-icon {
+        height: 50px; /* Recupera su tamaño normal */
+    }
+
+    .logo-text {
+        height: 26px; /* Letra legible */
+    }
+
+    .brand-logo a {
+        gap: 12px;
+    }
+
+    /* 2. Menú deslizable */
+    .nav-links {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: -100%; 
+        width: 100%;
+        background-color: var(--white);
+        padding: 2rem 0;
+        box-shadow: 0 10px 10px rgba(0,0,0,0.1);
+        transition: left 0.4s ease;
+    }
+
+    .nav-links.active {
+        left: 0;
+    }
+
+    /* 3. Hero y Textos Centrales (Solución Definitiva) */
+    .hero {
+        background: url('../assets/images/WhatsApp%20Image%202026-04-14%20at%2021.49.20%20(28).jpeg');
+        background-size: cover;
+        background-position: center;
+    }
+
+    .hero-content {
+        padding: 2rem 1rem; /* Achicamos el relleno lateral para darle más lugar al texto */
+        width: 95%;
+    }
+
+    .hero h1 {
+        font-size: 4.5vw !important; /* Se ajusta exactamente al ancho del celu */
+        letter-spacing: 0.2em; /* Bajamos la separación para que no ocupe tanto espacio */
+        margin-right: -0.2em;
+    }
+
+    .hero h1 span {
+        font-size: 11.5vw !important; /* Se ajusta exactamente al ancho del celu */
+        margin-top: 5px;
+        white-space: normal; /* Le permitimos respirar si el celu es extremadamente angosto */
+    }
 }

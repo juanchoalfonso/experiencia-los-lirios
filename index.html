@@ -6,7 +6,10 @@
     <title>Experiencia Los Lirios | Eventos en Olavarría</title>
     <meta name="description" content="Salón de eventos en Olavarría. Viví una experiencia única en Los Lirios.">
     
+    <link rel="icon" href="assets/images_marca/icono.jpg" type="image/jpeg">
+    
     <link rel="stylesheet" href="css/index.css">
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
@@ -14,7 +17,10 @@
     <header class="main-header">
         <nav class="navbar">
             <div class="brand-logo">
-                <img src="assets/logo.png" alt="Experiencia Los Lirios Logo">
+                <a href="#home">
+                    <img src="assets/images_marca/icono.jpg" alt="Icono Experiencia Los Lirios" class="logo-icon">
+                    <img src="assets/images_marca/logo.jpg" alt="Logo Experiencia Los Lirios" class="logo-text">
+                </a>
             </div>
             
             <ul class="nav-links" id="nav-links">
@@ -22,7 +28,7 @@
                 <li><a href="#venue">El Salón</a></li>
                 <li><a href="#services">Servicios</a></li>
                 <li><a href="#location">Ubicación</a></li>
-                <li><a href="https://wa.me/TU_NUMERO" class="btn-reservation">Reservas</a></li>
+                <li><a href="https://wa.me/5492284687006" class="btn-reservation" target="_blank">Reservas</a></li>
             </ul>
 
             <div class="mobile-menu-icon" id="mobile-menu">
@@ -34,39 +40,118 @@
     <main>
         <section id="home" class="hero">
             <div class="hero-content">
-                <h1>Experiencia Los Lirios</h1>
+                <h1>Experiencia <br><span>Los Lirios</span></h1>
                 <p>Momentos inolvidables en un entorno único.</p>
+                <a href="#venue" class="btn-outline">Descubrir más</a>
             </div>
         </section>
 
-        <section id="venue" class="section-padding">
-            <h2>El Salón</h2>
-            </section>
+        <section id="venue" class="section-padding grid-layout">
+            <div class="text-content">
+                <h2>El Salón</h2>
+                <p>Ubicado en el corazón de Barrio San Vicente, nuestro salón ofrece un espacio exclusivo donde la elegancia y la comodidad se encuentran. Diseñado para celebraciones que buscan dejar huella.</p>
+            </div>
+            <div class="image-content">
+                <img src="assets/images_marca/Manual de Marca Experiencia Los Lirios_page-0001.jpg" alt="Interior del salón">
+            </div>
+        </section>
 
-        <section id="services" class="section-padding">
-            <h2>Servicios</h2>
-            </section>
+        <section id="services" class="section-padding bg-alt">
+            <h2>Nuestros Servicios</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fas fa-fire-burner"></i>
+                    <h3>Quincho</h3>
+                    <ul>
+                        <li>Parrilla completa</li>
+                        <li>Freezer</li>
+                        <li>Horno pizzero a gas (ideal para pizzas o bondiolas)</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-glass-cheers"></i>
+                    <h3>Salón</h3>
+                    <ul>
+                        <li>Cocina completa y moderna</li>
+                        <li>Equipamiento de mesas y sillas</li>
+                        <li>2 baños exclusivos</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-tree"></i>
+                    <h3>Patio</h3>
+                    <ul>
+                        <li>Mesa de jardín y banco</li>
+                        <li>Amplio espacio verde</li>
+                        <li>Ideal para juegos infantiles</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="image-divider">
+            <img src="assets/images_marca/Manual de Marca Experiencia Los Lirios_page-0012.jpg" alt="Ambientación Los Lirios">
+        </section>
 
         <section id="location" class="section-padding">
             <h2>Ubicación</h2>
+            <p class="location-desc">Encontranos en <strong>Barrio San Vicente</strong>, un área tranquila y segura con fácil acceso y estacionamiento propio.</p>
+            
             <div class="map-container">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3191.432832598384!2d-60.3344444!3d-36.8833333!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9594379965158e8b%3A0xc3f5c92c8172c730!2sExperiencia%20Los%20Lirios!5e0!3m2!1ses-419!2sar!4v1713130000000!5m2!1ses-419!2sar" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                <iframe src="https://maps.app.goo.gl/ZbhybDeZ8KDm2uUNA" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+
+            <div class="reviews-section">
+                <h3>¿Por qué nos eligen?</h3>
+                <div class="rating-badge">
+                    <span class="score">4.8</span>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+                
+                <div class="reviews-grid">
+                    <div class="review-card">
+                        <h4>Excelente atención</h4>
+                        <p>"El lugar es precioso y el patio es enorme para los chicos. El horno pizzero funcionó de diez."</p>
+                    </div>
+                    <div class="review-card">
+                        <h4>Seguridad y calma</h4>
+                        <p>"Barrio San Vicente es súper tranquilo. Estacionamos en la puerta sin problemas. Muy moderno todo."</p>
+                    </div>
+                    <div class="review-card">
+                        <h4>Recomendado</h4>
+                        <p>"Festejamos un cumple y la cocina está equipada con todo lo necesario. La iluminación nocturna es mágica."</p>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
 
     <footer class="main-footer">
-        <p>&copy; 2026 Experiencia Los Lirios. Todos los derechos reservados.</p>
-        <div class="social-icons">
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-facebook"></i></a>
+        <div class="footer-container">
+            <div class="footer-logo">
+                <img src="assets/images_marca/icono.jpg" alt="Footer Logo">
+                <p>Experiencia Los Lirios</p>
+            </div>
+            <div class="footer-contact">
+                <p><i class="fab fa-whatsapp"></i> +54 9 2284 68-7006</p>
+                <p><i class="fas fa-map-marker-alt"></i> Barrio San Vicente, Olavarría</p>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Todos los derechos reservados.</p>
+            </div>
         </div>
     </footer>
 
-    <a href="https://wa.me/TU_NUMERO" class="whatsapp-float" target="_blank">
+    <a href="https://wa.me/5492284687006" class="whatsapp-float" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <script src="js/main.js"></script>
+    <script src="js/index.js"></script>
 </body>
 </html>
