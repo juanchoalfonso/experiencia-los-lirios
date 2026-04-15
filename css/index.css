@@ -68,7 +68,7 @@ h2 {
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    position: relative; /* Clave para el menú mobile */
+    /* Removed position: relative so the mobile menu spans full viewport width */
 }
 
 /* Logo dual */
@@ -177,16 +177,12 @@ h2 {
     margin-bottom: 0;
 }
 
-/* "Los Lirios" */
 .hero h1 span {
-    display: block; 
-    font-size: clamp(2.5rem, 8vw, 5.5rem); /* Magia de adaptación automática */
-    font-weight: 300; /* Light */
-    letter-spacing: 2px;
-    margin-right: 0; 
-    margin-top: 5px;
-    line-height: 1;
-}
+        font-size: 11.5vw !important; 
+        margin-top: 5px;
+        white-space: normal; 
+        word-break: break-word; /* Prevents overflow on very narrow screens */
+    }
 
 /* "Momentos inolvidables..." */
 .hero p {
@@ -408,8 +404,10 @@ h2 {
     }
 
     .hero-content {
-        padding: 2rem 1rem; /* Achicamos el relleno lateral para darle más lugar al texto */
+        padding: 2rem 1rem; /* Achicamos los bordes laterales para darle más lugar al texto */
         width: 95%;
+        max-width: 380px; /* Caja un poquito más ancha */
+        margin: 0 auto;
     }
 
     .hero h1 {
@@ -419,8 +417,10 @@ h2 {
     }
 
     .hero h1 span {
-        font-size: 11.5vw !important; /* Se ajusta exactamente al ancho del celu */
+        font-size: 2.4rem !important; /* Tamaño fijo, seguro y legible. Chau al vw. */
         margin-top: 5px;
-        white-space: normal; /* Le permitimos respirar si el celu es extremadamente angosto */
+        white-space: nowrap !important; /* PROHIBIDO partir la palabra en dos renglones */
+        letter-spacing: 1px; 
+        line-height: 1.1;
     }
 }
