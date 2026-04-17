@@ -901,3 +901,39 @@ h2 { font-size: 2.5rem; text-align: center; margin-bottom: 2.5rem; }
     color: #3c4043;
     font-style: italic;
 }
+
+/* =========================================
+   MEJORA VISUAL DE TARJETAS (Fondo y Bordes)
+   ========================================= */
+
+.feature-card, 
+.service-card {
+    /* Violeta ultra claro (tirando a blanco puro) */
+    background-color: #F8F6FA !important; 
+    
+    /* Un borde súper fino y semitransparente con tu color principal para enmarcarla */
+    border: 1px solid rgba(55, 20, 89, 0.08) !important;
+}
+
+/* Opcional: Hacer que el tinte se vuelva un toque más blanco al pasar el mouse para dar efecto de "iluminación" */
+.feature-card:hover, 
+.service-card:hover {
+    background-color: #FFFFFF !important;
+}
+
+/* =========================================
+   HERO MOBILE - NUEVA IMAGEN
+   ========================================= */
+
+/* Estilo general para mobile (menos de 768px) */
+@media (max-width: 767px) {
+    .hero {
+        /* Ruta a la nueva imagen (asegurate que esté cargada y la ruta sea correcta) */
+        background-image: url('../assets/images/WhatsApp Image 2026-04-14 at 21.49.17.jpeg');
+        
+        /* Aseguramos que cubra todo y esté centrada */
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover; 
+    }
+}
