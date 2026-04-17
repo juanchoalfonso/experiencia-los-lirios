@@ -87,13 +87,179 @@ h2 { font-size: 2.5rem; text-align: center; margin-bottom: 2.5rem; }
 .section-padding { padding: 100px 5%; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; }
 .bg-alt { background: var(--bg-light); }
 
-/* Venue Overlap */
-.overlap-container { position: relative; display: flex; align-items: center; max-width: 1200px; margin: 0 auto; }
-.text-card { background: var(--white); padding: 3.5rem; z-index: 2; box-shadow: 15px 15px 40px rgba(0,0,0,0.05); margin-right: -80px; max-width: 500px; border-left: 5px solid var(--primary-color); }
-.image-wrapper { flex: 1; z-index: 1; }
-.image-wrapper img { width: 100%; height: 500px; object-fit: cover; border-radius: 4px; }
-.accent-line { width: 40px; height: 3px; background: var(--accent-color); margin-bottom: 1rem; }
+/* --- Venue Section & Feature Cards --- */
+.venue-section {
+    background-color: var(--white);
+    padding: 80px 5% !important;
+}
 
+.venue-intro {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 4rem auto;
+}
+
+.venue-intro p {
+    font-size: 1.2rem;
+    color: var(--text-dark);
+    margin-top: 1.5rem;
+}
+
+/* Grid Layout */
+.venue-features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* =========================================
+   FEATURE CARDS (EL SALON)
+   ========================================= */
+
+/* Individual Card Styling */
+.feature-card {
+    background: var(--white);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(55, 20, 89, 0.1);
+}
+
+.feature-img {
+    height: 250px;
+    overflow: hidden;
+    position: relative; /* Necesario para el video encima */
+}
+
+.feature-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+    position: relative;
+    z-index: 0;
+}
+
+.feature-card:hover .feature-img img {
+    transform: scale(1.1);
+}
+
+/* Info Text inside cards */
+.feature-info {
+    padding: 2rem;
+    flex-grow: 1;
+    border-top: 4px solid var(--accent-color); /* La rayita violeta arriba del texto */
+}
+
+.feature-info h3 {
+    font-size: 1.4rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.feature-info p {
+    font-size: 0.95rem;
+    color: var(--text-dark);
+    opacity: 0.9;
+}
+
+/* Special Dual Image Layout for Kids Card */
+.dual-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5px;
+}
+
+/* =========================================
+   GARDEN CARD VIDEO LOGIC
+   ========================================= */
+
+.feature-video-container {
+    cursor: pointer;
+}
+
+.feature-video-element {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0; /* Oculto por defecto en PC */
+    transition: opacity 0.3s ease;
+    z-index: 1;
+}
+
+/* Hover effect on PC: video appears over the image */
+.garden-special:hover .feature-video-element {
+    opacity: 1;
+}
+
+.video-play-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0,0,0,0.5);
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    opacity: 0; 
+    z-index: 2;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+/* --- Mobile Specific adjustments --- */
+@media (max-width: 768px) {
+    .feature-img {
+        height: 200px;
+    }
+    
+    /* En mobile acomodamos el video para que se vea abajo de la foto */
+    .feature-video-container {
+        height: auto; 
+        display: flex;
+        flex-direction: column;
+    }
+
+    .feature-video-element {
+        position: relative;
+        opacity: 1; /* Forzamos a que se vea en celu (no hay hover) */
+        height: 200px; 
+        margin-top: 5px; /* Un mini espacio separador */
+    }
+
+    .garden-special:hover .feature-video-element {
+        opacity: 1;
+    }
+}
+
+/* Mobile Tweaks */
+@media (max-width: 768px) {
+    .venue-features-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .feature-img {
+        height: 200px;
+    }
+}
 /* Services */
 .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; max-width: 1200px; margin: 0 auto; width: 100%; }
 .service-card { background: var(--white); padding: 2.5rem; border-radius: 8px; text-align: center; transition: var(--transition); }
@@ -139,6 +305,54 @@ h2 { font-size: 2.5rem; text-align: center; margin-bottom: 2.5rem; }
     transform: scale(1.1);
     color: white;
 }
+
+/* =========================================
+   GARDEN CARD - ALWAYS VISIBLE SIDE-BY-SIDE
+   ========================================= */
+
+/* Use a unique class to apply specific grid logic on PC */
+.garden-special-always-visible .dual-grid-always {
+    display: grid;
+    /* Split into two equal columns on PC */
+    grid-template-columns: 1fr 1fr;
+    gap: 10px; /* Small gap between image and video */
+    height: 250px; /* Match standard card image height */
+    padding: 10px; /* A little padding inside the container */
+    overflow: hidden;
+}
+
+.garden-special-always-visible .dual-grid-always img,
+.feature-video-element-always {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important; /* Force content to cover the area without distortion */
+    border-radius: 8px; /* Rounded corners for the media elements */
+}
+
+/* Ensure the standard card hover effects still apply */
+.garden-special-always-visible:hover .dual-grid-always img,
+.garden-special-always-visible:hover .feature-video-element-always {
+    transform: scale(1.03); /* Subtle zoom on both */
+}
+
+/* --- Mobile Specific Adjustments --- */
+@media (max-width: 768px) {
+    .garden-special-always-visible .dual-grid-always {
+        /* Stack vertically on mobile */
+        grid-template-columns: 1fr;
+        height: auto; /* Let content determine height on mobile */
+        gap: 10px;
+    }
+    
+    .garden-special-always-visible .dual-grid-always img {
+        height: 180px !important; /* Standard mobile height for image */
+    }
+
+    .feature-video-element-always {
+        height: 200px !important; /* Slightly taller video on mobile to stand out */
+    }
+}
+
 
 /* =========================================
    RESPONSIVE (MOBILE)

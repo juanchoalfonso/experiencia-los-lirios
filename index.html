@@ -29,7 +29,8 @@
                     <li><a href="#venue">El Salón</a></li>
                     <li><a href="#services">Servicios</a></li>
                     <li><a href="#location">Ubicación</a></li>
-                    <li><a href="https://wa.me/5492284687006?text=Hola! me gustaría consultar disponibilidad para realizar una reserva en Experiencia Los Lirios" class="btn-reservation" target="_blank">Reservas</a></li>
+                    <li><a href="https://wa.me/5492284687006?text=Hola! me gustaría consultar disponibilidad para realizar una reserva en Experiencia Los Lirios"
+                            class="btn-reservation" target="_blank">Reservas</a></li>
                 </ul>
                 <div class="mobile-menu-icon" id="mobile-menu">
                     <i class="fas fa-bars"></i>
@@ -47,16 +48,79 @@
             </section>
 
             <section id="venue" class="section-padding venue-section">
-                <div class="overlap-container">
-                    <div class="text-card">
+                <div class="container">
+                    <div class="venue-intro">
                         <h2>El Salón</h2>
-                        <div class="accent-line"></div>
+                        <div class="accent-line center"></div>
                         <p>Ubicado en el corazón de Barrio San Vicente, nuestro salón ofrece un espacio exclusivo donde
-                            la
-                            elegancia y la comodidad se encuentran.</p>
+                            la elegancia y la comodidad se encuentran. Un entorno diseñado para celebraciones que buscan
+                            dejar huella.</p>
                     </div>
-                    <div class="image-wrapper">
-                        <img src="assets/images_marca/Manual de Marca Experiencia Los Lirios_page-0001.jpg" alt="Salón">
+
+                    <div class="venue-features-grid">
+                        <div class="feature-card">
+                            <div class="feature-img">
+                                <img src="assets/images/WhatsApp Image 2026-04-14 at 21.49.12.jpeg"
+                                    alt="Salón totalmente equipado">
+                            </div>
+                            <div class="feature-info">
+                                <h3>Totalmente Equipado</h3>
+                                <p>Contamos con tecnología y mobiliario de punta para que no tengas que preocuparte por
+                                    nada más que disfrutar.</p>
+                            </div>
+                        </div>
+
+                        <div class="feature-card">
+                            <div class="feature-img">
+                                <img src="assets/images/WhatsApp Image 2026-04-14 at 21.49.19 (11).jpeg"
+                                    alt="Vajilla y limpieza">
+                            </div>
+                            <div class="feature-info">
+                                <h3>Higiene y Elegancia</h3>
+                                <p>Entrega con limpieza extrema. Incluye vajilla completa de primera: copas, platos y
+                                    cubiertos listos para usar.</p>
+                            </div>
+                        </div>
+
+                        <div class="feature-card">
+                            <div class="feature-img">
+                                <img src="assets/images/WhatsApp Image 2026-04-14 at 21.49.19 (12).jpeg"
+                                    alt="Decoración personalizada">
+                            </div>
+                            <div class="feature-info">
+                                <h3>Tu Estilo, Tu Evento</h3>
+                                <p>Libertad creativa total. El salón es un lienzo blanco para que traigas la decoración
+                                    que siempre soñaste.</p>
+                            </div>
+                        </div>
+
+                        <div class="feature-card kids-special">
+                            <div class="feature-img dual-grid">
+                                <img src="assets/images/WhatsApp Image 2026-04-14 at 21.49.20 (21).jpeg"
+                                    alt="Espacio niños 1">
+                                <img src="assets/images/WhatsApp Image 2026-04-14 at 21.49.20 (22).jpeg"
+                                    alt="Espacio niños 2">
+                            </div>
+                            <div class="feature-info">
+                                <h3>Diversión Asegurada</h3>
+                                <p>Espacios pensados para los más chicos. Flexibilidad total para sumar castillos
+                                    inflables o mobiliario infantil.</p>
+                            </div>
+                        </div>
+
+                        <div class="feature-card garden-special-always-visible">
+                <div class="feature-img dual-grid-always">
+                    <img src="assets/images/WhatsApp Image 2026-04-14 at 21.49.19 (9).jpeg" alt="Jardín exterior">
+                    <video class="feature-video-element-always" loop muted playsinline autoplay preload="auto">
+                        <source src="assets/images/jardin-video.mp4" type="video/mp4">
+                        Tu navegador no soporta videos.
+                    </video>
+                </div>
+                <div class="feature-info">
+                    <h3>Jardín y Relax</h3>
+                    <p>Un área verde impecable lista para recepciones al aire libre o simplemente para respirar aire puro.</p>
+                </div>
+            </div>
                     </div>
                 </div>
             </section>
@@ -145,10 +209,8 @@
     <!-- FIN WRAPPER -->
 
     <!-- WhatsApp FUERA del wrapper para que position:fixed funcione en iOS -->
-    <a href="https://wa.me/5492284687006?text=Hola! me gustaría recibir más información sobre el salón de eventos Experiencia Los Lirios" 
-   id="FIXED_WAPP_FINAL" 
-   target="_blank" 
-   style="position: fixed !important; 
+    <a href="https://wa.me/5492284687006?text=Hola! me gustaría recibir más información sobre el salón de eventos Experiencia Los Lirios"
+        id="FIXED_WAPP_FINAL" target="_blank" style="position: fixed !important; 
           bottom: 30px !important; 
           right: 30px !important; 
           width: 60px !important; 
@@ -165,8 +227,8 @@
           text-decoration: none !important;
           visibility: visible !important;
           opacity: 1 !important;">
-    <i class="fab fa-whatsapp" style="color: white !important;"></i>
-</a>
+        <i class="fab fa-whatsapp" style="color: white !important;"></i>
+    </a>
 
     <script src="js/index.js"></script>
 </body>
