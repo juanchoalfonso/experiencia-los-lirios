@@ -669,3 +669,235 @@ h2 { font-size: 2.5rem; text-align: center; margin-bottom: 2.5rem; }
         background: linear-gradient(to top, rgba(0, 0, 0, 0.4) 0%, transparent 40%);
     }
 }
+
+/* =========================================
+   SEPARADOR VISUAL CON IMAGEN (MÓVIL)
+   ========================================= */
+
+/* Estilo general del separador (oculto por defecto) */
+.section-image-separator {
+    display: none; /* No se muestra en PC */
+}
+
+/* --- Solo para Mobile (menos de 768px) --- */
+@media (max-width: 767px) {
+    .section-image-separator {
+        display: block; 
+        
+        /* 1. FORZAR ESTIRAMIENTO A LOS BORDES EXACTOS */
+        width: 100vw; /* 100% del Viewport Width (ancho de la pantalla) */
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%); /* Lo centra ignorando los márgenes del padre */
+        
+        /* 2. ALTO DE LA FRANJA */
+        height: 35px; /* Lo bajé un poquito para que sea un detalle más fino, subilo si querés */
+        
+        /* 3. CONTROL DEL ESPACIO ARRIBA Y ABAJO (Homogeneización) */
+        /* Como la sección de arriba deja mucho espacio, usamos un margen negativo para subir el separador */
+        margin-top: -15px; 
+        /* Y empujamos un poquito la sección de abajo para que quede simétrico */
+        margin-bottom: 25px; 
+        
+        /* 4. IMAGEN */
+        background-image: url('../assets/images_marca/separador.jpg');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover; 
+    }
+}
+
+/* =========================================
+   UBICACIÓN, MAPA Y BOTÓN GPS
+   ========================================= */
+.location-reviews-section {
+    background-color: var(--white); /* o var(--bg-light) */
+}
+
+.location-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.map-wrapper {
+    position: relative; /* Para poder posicionar el botón arriba */
+    max-width: 1000px;
+    margin: 0 auto 4rem auto;
+}
+
+.map-container iframe {
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+/* Botón GPS Superpuesto */
+.btn-gps {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    background-color: #1a73e8; /* Color azul característico de Google Maps */
+    color: white;
+    padding: 12px 24px;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    box-shadow: 0 4px 15px rgba(26, 115, 232, 0.4);
+    transition: var(--transition);
+    z-index: 10;
+}
+
+.btn-gps:hover {
+    background-color: #1557b0;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(26, 115, 232, 0.6);
+    color: white;
+}
+
+/* --- Mobile Map Adjustments --- */
+@media (max-width: 768px) {
+    .btn-gps {
+        bottom: 15px;
+        right: 50%;
+        transform: translateX(50%); /* Centrado en celular */
+        width: max-content;
+    }
+    
+    .btn-gps:hover {
+        transform: translateX(50%) translateY(-3px);
+    }
+}
+
+/* =========================================
+   SECCIÓN DE RESEÑAS (SOCIAL PROOF)
+   ========================================= */
+.reviews-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-top: 2rem;
+    border-top: 1px solid #eee; /* Separador sutil */
+}
+
+.reviews-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 3rem;
+}
+
+.reviews-header h3 {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+/* Badge de Google */
+.google-rating-badge {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: #f8f9fa;
+    padding: 15px 30px;
+    border-radius: 50px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.google-logo {
+    width: 35px;
+    height: 35px;
+}
+
+.rating-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.rating-info .score {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #202124;
+}
+
+.rating-info .stars i {
+    color: #fbbc04; /* Amarillo Google */
+    font-size: 1.2rem;
+}
+
+.rating-info .total-reviews {
+    color: #5f6368;
+    font-size: 0.9rem;
+}
+
+/* Grilla de Tarjetas de Reseña */
+.reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.review-card {
+    background: var(--white);
+    padding: 25px;
+    border-radius: 16px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.04);
+    border: 1px solid #f1f3f4;
+    transition: var(--transition);
+}
+
+.review-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+}
+
+.review-author {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.author-avatar {
+    width: 45px;
+    height: 45px;
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.author-details h4 {
+    margin: 0;
+    color: var(--text-dark);
+    font-size: 1rem;
+}
+
+.review-date {
+    font-size: 0.8rem;
+    color: #9aa0a6;
+}
+
+.review-stars {
+    margin-bottom: 15px;
+}
+
+.review-stars i {
+    color: #fbbc04;
+    font-size: 1rem;
+    margin-right: 2px;
+}
+
+.review-text {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #3c4043;
+    font-style: italic;
+}
