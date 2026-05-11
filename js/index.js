@@ -125,10 +125,13 @@ animTargets.forEach(el => scrollObserver.observe(el));
 // Lightbox
 const lightbox = document.getElementById('lightbox');
 const lightboxImg = document.getElementById('lightbox-img');
+const galleryImgs = [...document.querySelectorAll('.gallery-item img')];
+let currentIndex = 0;
 
-function openLightbox(src, alt) {
-    lightboxImg.src = src;
-    lightboxImg.alt = alt;
+function openLightbox(index) {
+    currentIndex = (index + galleryImgs.length) % galleryImgs.length;
+    lightboxImg.src = galleryImgs[currentIndex].src;
+    lightboxImg.alt = galleryImgs[currentIndex].alt;
     lightbox.classList.add('active');
     document.body.style.overflow = 'hidden';
 }
@@ -139,8 +142,11 @@ function closeLightbox() {
     document.body.style.overflow = '';
 }
 
-document.querySelectorAll('.gallery-item img').forEach(img => {
-    img.addEventListener('click', () => openLightbox(img.src, img.alt));
+function showPrev() { openLightbox(currentIndex - 1); }
+function showNext() { openLightbox(currentIndex + 1); }
+
+galleryImgs.forEach((img, i) => {
+    img.addEventListener('click', () => openLightbox(i));
 });
 
 if (lightbox) {
@@ -149,8 +155,26 @@ if (lightbox) {
             closeLightbox();
         }
     });
+    document.querySelector('.lightbox-prev').addEventListener('click', showPrev);
+    document.querySelector('.lightbox-next').addEventListener('click', showNext);
+
+    // Swipe táctil
+    let touchStartX = 0;
+    lightbox.addEventListener('touchstart', (e) => {
+        touchStartX = e.touches[0].clientX;
+    }, { passive: true });
+
+    lightbox.addEventListener('touchend', (e) => {
+        const diff = touchStartX - e.changedTouches[0].clientX;
+        if (Math.abs(diff) > 50) {
+            diff > 0 ? showNext() : showPrev();
+        }
+    }, { passive: true });
 }
 
 document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') closeLightbox();
+    if (!lightbox.classList.contains('active')) return;
+    if (e.key === 'Escape')     closeLightbox();
+    if (e.key === 'ArrowLeft')  showPrev();
+    if (e.key === 'ArrowRight') showNext();
 });
