@@ -2,8 +2,6 @@
    CLEAN & REFACTORED CSS - LOS LIRIOS
    ========================================= */
 
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&display=swap');
-
 :root {
     --primary-color: #371459;
     --secondary-color: #765f9b;
@@ -42,8 +40,9 @@ h2 { font-size: 2.5rem; text-align: center; margin-bottom: 2.5rem; }
 .logo-icon { height: 60px; width: auto; }
 .logo-text { height: 35px; width: auto; }
 .nav-links { display: flex; list-style: none; gap: 2rem; align-items: center; }
-.nav-links a { text-decoration: none; color: var(--text-dark); font-weight: 600; transition: var(--transition); }
+.nav-links a { text-decoration: none; color: var(--text-dark); font-weight: 600; transition: var(--transition); padding-bottom: 3px; border-bottom: 2px solid transparent; }
 .nav-links a:hover { color: var(--secondary-color); }
+.nav-links a.active { color: var(--secondary-color); border-bottom-color: var(--secondary-color); }
 .btn-reservation { background: var(--primary-color); color: var(--white) !important; padding: 0.7rem 1.5rem; border-radius: 4px; text-transform: uppercase; }
 .mobile-menu-icon { display: none; font-size: 1.8rem; color: var(--primary-color); cursor: pointer; }
 
@@ -80,8 +79,8 @@ h2 { font-size: 2.5rem; text-align: center; margin-bottom: 2.5rem; }
 .hero h1 { font-size: clamp(1.2rem, 3vw, 1.8rem); font-weight: 400; letter-spacing: 0.5em; margin-bottom: 0.5rem; line-height: 1.1;}
 .hero h1 span { display: block; font-size: clamp(2.5rem, 8vw, 5.5rem); font-weight: 300; line-height: 1; letter-spacing: 2px; }
 .hero p { font-size: 1.3rem; color: var(--primary-color); margin: 1.5rem 0 2.5rem; font-weight: 500; }
-.btn-outline { background: var(--primary-color); color: var(--white); padding: 1rem 3rem; border-radius: 4px; text-decoration: none; font-weight: 600; text-transform: uppercase; transition: var(--transition); display: inline-block; }
-.btn-outline:hover { background: transparent; color: var(--primary-color); border: 2px solid var(--primary-color); }
+.btn-outline { background: var(--primary-color); color: var(--white); padding: 1rem 3rem; border-radius: 4px; text-decoration: none; font-weight: 600; text-transform: uppercase; transition: var(--transition); display: inline-block; border: 2px solid transparent; }
+.btn-outline:hover { background: transparent; color: var(--primary-color); border-color: var(--primary-color); }
 
 /* --- Content Sections --- */
 .section-padding { padding: 100px 5%; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; }
@@ -90,7 +89,7 @@ h2 { font-size: 2.5rem; text-align: center; margin-bottom: 2.5rem; }
 /* --- Venue Section & Feature Cards --- */
 .venue-section {
     background-color: var(--white);
-    padding: 80px 5% !important;
+    padding: 80px 5%;
 }
 
 .venue-intro {
@@ -179,75 +178,6 @@ h2 { font-size: 2.5rem; text-align: center; margin-bottom: 2.5rem; }
     gap: 5px;
 }
 
-/* =========================================
-   GARDEN CARD VIDEO LOGIC
-   ========================================= */
-
-.feature-video-container {
-    cursor: pointer;
-}
-
-.feature-video-element {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0; /* Oculto por defecto en PC */
-    transition: opacity 0.3s ease;
-    z-index: 1;
-}
-
-/* Hover effect on PC: video appears over the image */
-.garden-special:hover .feature-video-element {
-    opacity: 1;
-}
-
-.video-play-overlay {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: rgba(0,0,0,0.5);
-    color: white;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 24px;
-    opacity: 0; 
-    z-index: 2;
-    transition: opacity 0.3s ease;
-    pointer-events: none;
-}
-
-/* --- Mobile Specific adjustments --- */
-@media (max-width: 768px) {
-    .feature-img {
-        height: 200px;
-    }
-    
-    /* En mobile acomodamos el video para que se vea abajo de la foto */
-    .feature-video-container {
-        height: auto; 
-        display: flex;
-        flex-direction: column;
-    }
-
-    .feature-video-element {
-        position: relative;
-        opacity: 1; /* Forzamos a que se vea en celu (no hay hover) */
-        height: 200px; 
-        margin-top: 5px; /* Un mini espacio separador */
-    }
-
-    .garden-special:hover .feature-video-element {
-        opacity: 1;
-    }
-}
 
 /* Mobile Tweaks */
 @media (max-width: 768px) {
@@ -281,22 +211,26 @@ h2 { font-size: 2.5rem; text-align: center; margin-bottom: 2.5rem; }
 .footer-divider { width: 100%; height: 1px; background: rgba(255,255,255,0.1); margin: 3rem 0 1rem; }
 .footer-bottom { text-align: center; font-size: 0.85rem; opacity: 0.6; }
 
+.footer-links { list-style: none; display: flex; flex-direction: column; gap: 0.7rem; }
+.footer-links a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 0.95rem; transition: var(--transition); display: inline-block; }
+.footer-links a:hover { color: var(--white); transform: translateX(4px); }
+
 /* --- Fixed WhatsApp Bubble --- */
-.whatsapp-float { 
-    position: fixed; 
-    bottom: 25px; 
-    right: 25px; 
-    background: #25d366; 
-    color: white; 
-    width: 60px; 
-    height: 60px; 
-    border-radius: 50%; 
-    display: flex; 
-    align-items: center; 
-    justify-content: center; 
-    font-size: 32px; 
-    z-index: 9999;
-    box-shadow: 2px 4px 15px rgba(0,0,0,0.3);
+.whatsapp-float {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: #25d366;
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    z-index: 99999;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
     text-decoration: none;
     transition: var(--transition);
 }
@@ -304,6 +238,49 @@ h2 { font-size: 2.5rem; text-align: center; margin-bottom: 2.5rem; }
 .whatsapp-float:hover {
     transform: scale(1.1);
     color: white;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+}
+
+/* --- Lightbox --- */
+.lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.92);
+    z-index: 100000;
+    align-items: center;
+    justify-content: center;
+}
+
+.lightbox.active {
+    display: flex;
+}
+
+.lightbox img {
+    max-width: 90vw;
+    max-height: 90vh;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.6);
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 28px;
+    color: white;
+    font-size: 2.8rem;
+    cursor: pointer;
+    line-height: 1;
+    opacity: 0.75;
+    transition: opacity 0.2s;
+    background: none;
+    border: none;
+    padding: 0;
+}
+
+.lightbox-close:hover {
+    opacity: 1;
 }
 
 /* =========================================
@@ -392,6 +369,8 @@ h2 { font-size: 2.5rem; text-align: center; margin-bottom: 2.5rem; }
 
     .footer-container { flex-direction: column; text-align: center; gap: 2rem; }
     .social-links { justify-content: center; }
+    .footer-links { align-items: center; }
+    .footer-links a:hover { transform: none; }
     .main-footer { padding: 3rem 5% 1.5rem; }
     .whatsapp-float {
         width: 50px;
@@ -407,8 +386,8 @@ h2 { font-size: 2.5rem; text-align: center; margin-bottom: 2.5rem; }
    SERVICIOS - GRID LAYOUT
    ========================================= */
 .services-section {
-    background-color: var(--white); /* O var(--bg-light) si prefieres bg-alt */
-    padding: 80px 5% !important;
+    background-color: var(--white);
+    padding: 80px 5%;
 }
 
 .services-intro {
@@ -518,7 +497,7 @@ h2 { font-size: 2.5rem; text-align: center; margin-bottom: 2.5rem; }
    ========================================= */
 .gallery-section {
     background-color: var(--white);
-    padding: 80px 5% !important;
+    padding: 80px 5%;
 }
 
 .gallery-intro {
@@ -902,23 +881,15 @@ h2 { font-size: 2.5rem; text-align: center; margin-bottom: 2.5rem; }
     font-style: italic;
 }
 
-/* =========================================
-   MEJORA VISUAL DE TARJETAS (Fondo y Bordes)
-   ========================================= */
-
-.feature-card, 
+.feature-card,
 .service-card {
-    /* Violeta ultra claro (tirando a blanco puro) */
-    background-color: #F8F6FA !important; 
-    
-    /* Un borde súper fino y semitransparente con tu color principal para enmarcarla */
-    border: 1px solid rgba(55, 20, 89, 0.08) !important;
+    background-color: #F8F6FA;
+    border: 1px solid rgba(55, 20, 89, 0.08);
 }
 
-/* Opcional: Hacer que el tinte se vuelva un toque más blanco al pasar el mouse para dar efecto de "iluminación" */
-.feature-card:hover, 
+.feature-card:hover,
 .service-card:hover {
-    background-color: #FFFFFF !important;
+    background-color: #FFFFFF;
 }
 
 /* =========================================
@@ -939,15 +910,92 @@ h2 { font-size: 2.5rem; text-align: center; margin-bottom: 2.5rem; }
 }
 
 /* Quita el color azul automático de teléfonos y links en el footer */
-.footer a, 
+.footer a,
 .footer p a,
-a[href^="tel"], 
+a[href^="tel"],
 a[href^="whatsapp"] {
     color: inherit !important;
     text-decoration: none !important;
 }
 
-/* O si querés forzar que sea blanco específicamente */
 .footer-info p {
     color: #FFFFFF !important;
+}
+
+/* --- Back to top --- */
+#back-to-top {
+    position: fixed;
+    bottom: 105px;
+    right: 32px;
+    width: 44px;
+    height: 44px;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    z-index: 9998;
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.3s ease, transform 0.3s ease, background 0.3s ease;
+    box-shadow: 0 4px 12px rgba(55, 20, 89, 0.35);
+    pointer-events: none;
+}
+
+#back-to-top.visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+#back-to-top:hover {
+    background: var(--secondary-color);
+    box-shadow: 0 6px 18px rgba(55, 20, 89, 0.5);
+}
+
+/* =========================================
+   PRELOADER
+   ========================================= */
+#preloader {
+    position: fixed;
+    inset: 0;
+    background: var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999999;
+    transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+
+#preloader.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+#preloader img {
+    width: 110px;
+    animation: preloader-pulse 1s ease-in-out infinite alternate;
+}
+
+@keyframes preloader-pulse {
+    from { transform: scale(1); opacity: 0.8; }
+    to   { transform: scale(1.08); opacity: 1; }
+}
+
+/* =========================================
+   ANIMACIONES DE SCROLL (Intersection Observer)
+   ========================================= */
+.anim-fade-up {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.65s ease, transform 0.65s ease;
+}
+
+.anim-fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
 }

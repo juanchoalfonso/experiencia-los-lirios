@@ -3,9 +3,76 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Experiencia Los Lirios | Eventos en Olavarría</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experiencia Los Lirios | Salón de Eventos en Olavarría</title>
+    <meta name="description" content="Salón de eventos exclusivo en Olavarría. Espacio elegante con jardín, parrilla, cocina americana y vajilla completa para fiestas, cumpleaños y celebraciones en Barrio San Vicente.">
+    <link rel="canonical" href="https://experiencialoslirios.com.ar/">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#371459">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Los Lirios">
 
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://experiencialoslirios.com.ar/">
+    <meta property="og:title" content="Experiencia Los Lirios | Salón de Eventos en Olavarría">
+    <meta property="og:description" content="Salón de eventos exclusivo en Olavarría. Espacio elegante con jardín, parrilla, cocina americana y vajilla completa para fiestas, cumpleaños y celebraciones.">
+    <meta property="og:image" content="https://experiencialoslirios.com.ar/assets/images_marca/Manual%20de%20Marca%20Experiencia%20Los%20Lirios_page-0008.jpg">
+    <meta property="og:locale" content="es_AR">
+    <meta property="og:site_name" content="Experiencia Los Lirios">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Experiencia Los Lirios | Salón de Eventos en Olavarría">
+    <meta name="twitter:description" content="Salón de eventos exclusivo en Olavarría. Espacio elegante con jardín, parrilla, cocina americana y vajilla completa.">
+    <meta name="twitter:image" content="https://experiencialoslirios.com.ar/assets/images_marca/Manual%20de%20Marca%20Experiencia%20Los%20Lirios_page-0008.jpg">
+
+    <!-- Schema.org LocalBusiness -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "EventVenue",
+      "name": "Experiencia Los Lirios",
+      "description": "Salón de eventos exclusivo en el corazón de Barrio San Vicente, Olavarría. Espacio elegante con jardín, parrilla, cocina americana completa y vajilla incluida.",
+      "url": "https://experiencialoslirios.com.ar",
+      "telephone": "+54-9-2284-68-7006",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Canaveri 2689 esquina Vicente López",
+        "addressLocality": "Olavarría",
+        "addressRegion": "Buenos Aires",
+        "addressCountry": "AR"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": -36.8914,
+        "longitude": -60.3227
+      },
+      "sameAs": [
+        "https://www.instagram.com/experiencia.loslirios/",
+        "https://www.facebook.com/people/Experiencia-Los-Lirios/61568073667612/"
+      ],
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "reviewCount": "120"
+      }
+    }
+    </script>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NLH9NMHVKM"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-NLH9NMHVKM');
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&display=swap">
     <link rel="stylesheet" href="css/index.css?v=22">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="icon" type="image/png" href="assets/images_marca/favicon.png">
@@ -13,6 +80,10 @@
 </head>
 
 <body>
+
+    <div id="preloader">
+        <img src="assets/images_marca/icono.jpg" alt="Experiencia Los Lirios">
+    </div>
 
     <!-- WRAPPER: contiene todo excepto el botón de WhatsApp -->
     <div class="page-wrapper">
@@ -34,7 +105,7 @@
                     <li><a href="https://wa.me/5492284687006?text=Hola! me gustaría consultar disponibilidad para realizar una reserva en Experiencia Los Lirios"
                             class="btn-reservation" target="_blank">Reservas</a></li>
                 </ul>
-                <div class="mobile-menu-icon" id="mobile-menu">
+                <div class="mobile-menu-icon" id="mobile-menu" aria-label="Abrir menú" role="button">
                     <i class="fas fa-bars"></i>
                 </div>
             </nav>
@@ -64,7 +135,7 @@
                         <div class="feature-card">
                             <div class="feature-img">
                                 <img src="assets/images/WhatsApp Image 2026-04-14 at 21.49.12.jpeg"
-                                    alt="Salón totalmente equipado">
+                                    alt="Salón totalmente equipado" loading="lazy">
                             </div>
                             <div class="feature-info">
                                 <h3>Totalmente Equipado</h3>
@@ -76,7 +147,7 @@
                         <div class="feature-card">
                             <div class="feature-img">
                                 <img src="assets/images/WhatsApp Image 2026-04-14 at 21.49.19 (11).jpeg"
-                                    alt="Vajilla y limpieza">
+                                    alt="Vajilla y limpieza" loading="lazy">
                             </div>
                             <div class="feature-info">
                                 <h3>Higiene y Elegancia</h3>
@@ -89,7 +160,7 @@
                         <div class="feature-card">
                             <div class="feature-img">
                                 <img src="assets/images/WhatsApp Image 2026-04-14 at 21.49.19 (12).jpeg"
-                                    alt="Decoración personalizada">
+                                    alt="Decoración personalizada" loading="lazy">
                             </div>
                             <div class="feature-info">
                                 <h3>Tu Estilo, Tu Evento</h3>
@@ -101,9 +172,9 @@
                         <div class="feature-card kids-special">
                             <div class="feature-img dual-grid">
                                 <img src="assets/images/WhatsApp Image 2026-04-14 at 21.49.20 (21).jpeg"
-                                    alt="Espacio niños 1">
+                                    alt="Espacio niños 1" loading="lazy">
                                 <img src="assets/images/WhatsApp Image 2026-04-14 at 21.49.20 (22).jpeg"
-                                    alt="Espacio niños 2">
+                                    alt="Espacio niños 2" loading="lazy">
                             </div>
                             <div class="feature-info">
                                 <h3>Diversión Asegurada</h3>
@@ -115,7 +186,7 @@
                         <div class="feature-card garden-special-always-visible">
                             <div class="feature-img dual-grid-always">
                                 <img src="assets/images/WhatsApp Image 2026-04-14 at 21.49.19 (9).jpeg"
-                                    alt="Jardín exterior">
+                                    alt="Jardín exterior" loading="lazy">
                                 <video class="feature-video-element-always" loop muted playsinline autoplay
                                     preload="auto">
                                     <source src="assets/images/jardin-video.mp4" type="video/mp4">
@@ -146,7 +217,7 @@
                         <div class="service-card">
                             <div class="service-img">
                                 <img src="assets/images/WhatsApp Image 2026-04-14 at 21.49.12.jpeg"
-                                    alt="Cocina americana completa">
+                                    alt="Cocina americana completa" loading="lazy">
                             </div>
                             <div class="service-info">
                                 <div class="service-header">
@@ -161,7 +232,7 @@
                         <div class="service-card">
                             <div class="service-img">
                                 <img src="assets/images/WhatsApp Image 2026-04-14 at 21.49.19 (5).jpeg"
-                                    alt="Parrilla en quincho">
+                                    alt="Parrilla en quincho" loading="lazy">
                             </div>
                             <div class="service-info">
                                 <div class="service-header">
@@ -176,7 +247,7 @@
                         <div class="service-card">
                             <div class="service-img">
                                 <img src="assets/images/WhatsApp Image 2026-04-14 at 21.49.19 (7).jpeg"
-                                    alt="Horno a gas">
+                                    alt="Horno a gas" loading="lazy">
                             </div>
                             <div class="service-info">
                                 <div class="service-header">
@@ -190,7 +261,7 @@
                         <div class="service-card">
                             <div class="service-img">
                                 <img src="assets/images/WhatsApp Image 2026-04-14 at 21.49.19 (10).jpeg"
-                                    alt="Seguridad y WiFi">
+                                    alt="Seguridad y WiFi" loading="lazy">
                             </div>
                             <div class="service-info">
                                 <div class="service-header">
@@ -327,7 +398,6 @@
                     </div>
                 </div>
             </section>
-        </main>
 
         <section id="gallery" class="section-padding gallery-section">
             <div class="section-image-separator"></div>
@@ -347,52 +417,52 @@
                             </video>
                         </div>
                         <div class="gallery-item">
-                            <img src="assets/images/WhatsApp Image 2026-04-14 at 21.49.20 (4).jpeg" alt="Evento 1">
+                            <img src="assets/images/WhatsApp Image 2026-04-14 at 21.49.20 (4).jpeg" alt="Celebración en Experiencia Los Lirios" loading="lazy">
                         </div>
                         <div class="gallery-item">
-                            <img src="assets/images/WhatsApp Image 2026-04-14 at 21.49.20 (12).jpeg" alt="Evento 2">
+                            <img src="assets/images/WhatsApp Image 2026-04-14 at 21.49.20 (12).jpeg" alt="Decoración de evento en el salón" loading="lazy">
                         </div>
                         <div class="gallery-item">
-                            <img src="assets/images/WhatsApp Image 2026-04-14 at 21.49.19 (12).jpeg" alt="Evento 3">
+                            <img src="assets/images/WhatsApp Image 2026-04-14 at 21.49.19 (12).jpeg" alt="Ambientación interior del salón" loading="lazy">
                         </div>
 
                         <div class="gallery-item">
-                            <img src="assets/images/WhatsApp Image 2026-04-14 at 21.49.20 (31).jpeg" alt="Evento 4">
+                            <img src="assets/images/WhatsApp Image 2026-04-14 at 21.49.20 (31).jpeg" alt="Evento familiar en Los Lirios" loading="lazy">
                         </div>
                     </div>
 
                     <div class="masonry-col">
 
                         <div class="gallery-item">
-                            <img src="assets/images/WhatsApp Image 2026-04-14 at 21.49.20 (6).jpeg" alt="Evento 5">
+                            <img src="assets/images/WhatsApp Image 2026-04-14 at 21.49.20 (6).jpeg" alt="Fiesta de cumpleaños en el salón" loading="lazy">
                         </div>
                         <div class="gallery-item">
-                            <img src="assets/images/WhatsApp Image 2026-04-14 at 21.49.20 (1).jpeg" alt="Evento 6">
+                            <img src="assets/images/WhatsApp Image 2026-04-14 at 21.49.20 (1).jpeg" alt="Preparativos para evento en Los Lirios" loading="lazy">
                         </div>
                         <div class="gallery-item">
-                            <img src="assets/images/WhatsApp Image 2026-04-14 at 21.49.20 (29).jpeg" alt="Evento 7">
+                            <img src="assets/images/WhatsApp Image 2026-04-14 at 21.49.20 (29).jpeg" alt="Mesa decorada en salón de eventos" loading="lazy">
                         </div>
                         <div class="gallery-item">
-                            <img src="assets/images/WhatsApp Image 2026-04-14 at 21.49.20 (17).jpeg" alt="Evento 8">
+                            <img src="assets/images/WhatsApp Image 2026-04-14 at 21.49.20 (17).jpeg" alt="Celebración en Experiencia Los Lirios Olavarría" loading="lazy">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="assets/images/WhatsApp Image 2026-04-14 at 21.49.20 (9).jpeg" alt="Jardín y espacio al aire libre Los Lirios" loading="lazy">
                         </div>
                     </div>
 
                     <div class="masonry-col">
 
                         <div class="gallery-item">
-                            <img src="assets/images/WhatsApp Image 2026-04-14 at 21.49.20 (9).jpeg" alt="Evento 9">
+                            <img src="assets/images/WhatsApp Image 2026-04-14 at 21.49.20 (15).jpeg" alt="Ambiente interior decorado para evento" loading="lazy">
                         </div>
                         <div class="gallery-item">
-                            <img src="assets/images/WhatsApp Image 2026-04-14 at 21.49.20 (15).jpeg" alt="Evento 10">
+                            <img src="assets/images/WhatsApp Image 2026-04-14 at 21.49.20 (25).jpeg" alt="Evento especial en salón Los Lirios" loading="lazy">
                         </div>
                         <div class="gallery-item">
-                            <img src="assets/images/WhatsApp Image 2026-04-14 at 21.49.20 (25).jpeg" alt="Evento 11">
+                            <img src="assets/images/WhatsApp Image 2026-04-14 at 21.49.20 (16).jpeg" alt="Celebración nocturna en el salón" loading="lazy">
                         </div>
                         <div class="gallery-item">
-                            <img src="assets/images/WhatsApp Image 2026-04-14 at 21.49.20 (16).jpeg" alt="Evento 12">
-                        </div>
-                        <div class="gallery-item">
-                            <img src="assets/images/WhatsApp Image 2026-04-14 at 21.49.20 (32).jpeg" alt="Evento 13">
+                            <img src="assets/images/WhatsApp Image 2026-04-14 at 21.49.20 (32).jpeg" alt="Fiesta en Experiencia Los Lirios Olavarría" loading="lazy">
                         </div>
                         <div class="gallery-item video-item">
                             <video autoplay loop muted playsinline>
@@ -404,6 +474,7 @@
                 </div>
             </div>
         </section>
+        </main>
 
         <footer class="main-footer">
             <div class="footer-container">
@@ -411,13 +482,21 @@
                     <h3 class="footer-title">Experiencia Los Lirios</h3>
                     <p>Un espacio exclusivo en el corazón de Olavarría.</p>
                 </div>
+                <div class="footer-col links-col">
+                    <h3 class="footer-title">Navegación</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Inicio</a></li>
+                        <li><a href="#venue">El Salón</a></li>
+                        <li><a href="#services">Servicios</a></li>
+                        <li><a href="#location">Ubicación</a></li>
+                        <li><a href="#gallery">Galería</a></li>
+                    </ul>
+                </div>
                 <div class="footer-col social-col">
                     <h3 class="footer-title">Redes Sociales</h3>
                     <div class="social-links">
-                        <a href="https://www.instagram.com/experiencia.loslirios/" target="_blank"><i
-                                class="fab fa-instagram"></i></a>
-                        <a href="https://www.facebook.com/people/Experiencia-Los-Lirios/61568073667612/"
-                            target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/experiencia.loslirios/" target="_blank" aria-label="Seguinos en Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.facebook.com/people/Experiencia-Los-Lirios/61568073667612/" target="_blank" aria-label="Seguinos en Facebook"><i class="fab fa-facebook-f"></i></a>
                     </div>
                 </div>
                 <div class="footer-col contact-col">
@@ -436,27 +515,21 @@
     </div>
     <!-- FIN WRAPPER -->
 
-    <!-- WhatsApp FUERA del wrapper para que position:fixed funcione en iOS -->
+    <button id="back-to-top" aria-label="Volver al inicio">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- WhatsApp flotante (fuera del wrapper para que position:fixed funcione en iOS) -->
     <a href="https://wa.me/5492284687006?text=Hola! me gustaría recibir más información sobre el salón de eventos Experiencia Los Lirios"
-        id="FIXED_WAPP_FINAL" target="_blank" style="position: fixed !important; 
-          bottom: 30px !important; 
-          right: 30px !important; 
-          width: 60px !important; 
-          height: 60px !important; 
-          background-color: #25d366 !important; 
-          color: white !important; 
-          border-radius: 50% !important; 
-          display: flex !important; 
-          align-items: center !important; 
-          justify-content: center !important; 
-          font-size: 30px !important; 
-          z-index: 99999999 !important; 
-          box-shadow: 0 4px 12px rgba(0,0,0,0.4) !important; 
-          text-decoration: none !important;
-          visibility: visible !important;
-          opacity: 1 !important;">
-        <i class="fab fa-whatsapp" style="color: white !important;"></i>
+        class="whatsapp-float" target="_blank" aria-label="Contactar por WhatsApp">
+        <i class="fab fa-whatsapp"></i>
     </a>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Vista de imagen">
+        <button class="lightbox-close" aria-label="Cerrar">&times;</button>
+        <img id="lightbox-img" src="" alt="">
+    </div>
 
     <script src="js/index.js"></script>
 </body>

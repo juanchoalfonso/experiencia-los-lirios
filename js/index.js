@@ -1,103 +1,156 @@
-/**
- * Experiencia Los Lirios - Main Logic
- */
-
-// Mobile navigation elements
 const mobileMenuBtn = document.getElementById('mobile-menu');
 const navLinksContainer = document.getElementById('nav-links');
 
-// Handle mobile menu interaction
+function closeMobileMenu() {
+    navLinksContainer.classList.remove('active');
+    const icon = mobileMenuBtn.querySelector('i');
+    if (icon) {
+        icon.classList.add('fa-bars');
+        icon.classList.remove('fa-times');
+    }
+}
+
+// Toggle mobile menu
 if (mobileMenuBtn) {
-    mobileMenuBtn.addEventListener('click', () => {
+    mobileMenuBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
         navLinksContainer.classList.toggle('active');
-        
-        // Toggle icon between bars and close (X)
-        const iconElement = mobileMenuBtn.querySelector('i');
-        iconElement.classList.toggle('fa-bars');
-        iconElement.classList.toggle('fa-times');
+        const icon = mobileMenuBtn.querySelector('i');
+        icon.classList.toggle('fa-bars');
+        icon.classList.toggle('fa-times');
     });
 }
 
-// Close mobile menu when a navigation item is clicked
+// Close menu when a nav link is clicked
 document.querySelectorAll('.nav-links a').forEach(link => {
-    link.addEventListener('click', () => {
-        navLinksContainer.classList.remove('active');
-        
-        // Reset to default bars icon
-        const iconElement = mobileMenuBtn.querySelector('i');
-        iconElement.classList.add('fa-bars');
-        iconElement.classList.remove('fa-times');
-    });
+    link.addEventListener('click', closeMobileMenu);
 });
 
-// Smooth scrolling for navigation anchors
+// Close menu when clicking outside
+document.addEventListener('click', (e) => {
+    if (
+        navLinksContainer.classList.contains('active') &&
+        !navLinksContainer.contains(e.target) &&
+        !mobileMenuBtn.contains(e.target)
+    ) {
+        closeMobileMenu();
+    }
+});
+
+// Smooth scrolling for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (event) {
+    anchor.addEventListener('click', function (e) {
         const targetId = this.getAttribute('href');
-        
-        if (targetId !== "#") {
-            event.preventDefault();
-            const targetSection = document.querySelector(targetId);
-            
-            if (targetSection) {
-                targetSection.scrollIntoView({
-                    behavior: 'smooth'
-                });
-            }
+        if (targetId !== '#') {
+            e.preventDefault();
+            const target = document.querySelector(targetId);
+            if (target) target.scrollIntoView({ behavior: 'smooth' });
         }
     });
 });
 
-window.addEventListener('scroll', function() {
-    const nav = document.querySelector('.navbar');
-    if (window.scrollY > 50) { // Si bajó más de 50px
-        nav.classList.add('scrolled');
-    } else {
-        nav.classList.remove('scrolled');
-    }
-});
+// Back to top button
+const backToTopBtn = document.getElementById('back-to-top');
+if (backToTopBtn) {
+    backToTopBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+}
 
-// =========================================
-// Close mobile menu on scroll
-// =========================================
+// Scroll: navbar highlight + close mobile menu + back to top visibility
 window.addEventListener('scroll', () => {
-    // Verificamos si el menú está abierto
+    const nav = document.querySelector('.navbar');
+    nav.classList.toggle('scrolled', window.scrollY > 50);
+
+    if (backToTopBtn) {
+        backToTopBtn.classList.toggle('visible', window.scrollY > 400);
+    }
+
     if (navLinksContainer.classList.contains('active')) {
-        // Lo cerramos
-        navLinksContainer.classList.remove('active');
-        
-        // Volvemos a poner el icono de la "hamburguesa"
-        const iconElement = mobileMenuBtn.querySelector('i');
-        if (iconElement) {
-            iconElement.classList.add('fa-bars');
-            iconElement.classList.remove('fa-times');
-        }
+        closeMobileMenu();
     }
 });
 
-// Esperamos a que todo el contenido cargue
-document.addEventListener('DOMContentLoaded', () => {
-    const gardenCard = document.querySelector('.garden-special');
-    const gardenVideo = gardenCard?.querySelector('.feature-video-element');
+// Navbar active section highlight
+const sections = document.querySelectorAll('section[id]');
+const navAnchors = document.querySelectorAll('.nav-links a[href^="#"]');
 
-    if (gardenCard && gardenVideo) {
-        // Reforzamos el mudo por JS (algunos browsers lo necesitan)
-        gardenVideo.muted = true;
+const sectionObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            navAnchors.forEach(a => a.classList.remove('active'));
+            const activeLink = document.querySelector(`.nav-links a[href="#${entry.target.id}"]`);
+            if (activeLink) activeLink.classList.add('active');
+        }
+    });
+}, { rootMargin: '-30% 0px -65% 0px', threshold: 0 });
 
-        gardenCard.addEventListener('mouseenter', () => {
-            // Intentamos reproducir y capturamos posibles errores
-            const playPromise = gardenVideo.play();
-            
-            if (playPromise !== undefined) {
-                playPromise.catch(error => {
-                    console.log("El navegador bloqueó el autoplay:", error);
-                });
-            }
-        });
+sections.forEach(s => sectionObserver.observe(s));
 
-        gardenCard.addEventListener('mouseleave', () => {
-            gardenVideo.pause();
-            // Opcional: gardenVideo.currentTime = 0; // Para que vuelva a empezar
-        });
+// Preloader
+window.addEventListener('load', () => {
+    const preloader = document.getElementById('preloader');
+    if (preloader) {
+        preloader.classList.add('hidden');
+        preloader.addEventListener('transitionend', () => preloader.remove(), { once: true });
     }
+});
+
+// Scroll animations (Intersection Observer)
+const animTargets = document.querySelectorAll(
+    '.feature-card, .service-card, .trust-card, .review-card, ' +
+    '.venue-intro, .services-intro, .gallery-intro, .location-header, .map-wrapper'
+);
+
+animTargets.forEach(el => el.classList.add('anim-fade-up'));
+
+// Stagger delay for cards within each grid
+['.venue-features-grid', '.services-grid', '.trust-container', '.reviews-grid'].forEach(grid => {
+    document.querySelectorAll(`${grid} > *`).forEach((el, i) => {
+        if (i > 0) el.style.transitionDelay = `${i * 0.1}s`;
+    });
+});
+
+const scrollObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            scrollObserver.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+animTargets.forEach(el => scrollObserver.observe(el));
+
+// Lightbox
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightbox-img');
+
+function openLightbox(src, alt) {
+    lightboxImg.src = src;
+    lightboxImg.alt = alt;
+    lightbox.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox() {
+    lightbox.classList.remove('active');
+    lightboxImg.src = '';
+    document.body.style.overflow = '';
+}
+
+document.querySelectorAll('.gallery-item img').forEach(img => {
+    img.addEventListener('click', () => openLightbox(img.src, img.alt));
+});
+
+if (lightbox) {
+    lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox || e.target.classList.contains('lightbox-close')) {
+            closeLightbox();
+        }
+    });
+}
+
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeLightbox();
 });

@@ -1,0 +1,17 @@
+{
+  "name": "Experiencia Los Lirios",
+  "short_name": "Los Lirios",
+  "description": "Salón de eventos exclusivo en Olavarría, Buenos Aires.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#371459",
+  "theme_color": "#371459",
+  "lang": "es-AR",
+  "icons": [
+    {
+      "src": "assets/images_marca/favicon.png",
+      "sizes": "any",
+      "type": "image/png"
+    }
+  ]
+}
