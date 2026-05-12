@@ -34,15 +34,29 @@ h1, h2, h3 { color: var(--primary-color); text-transform: uppercase; letter-spac
 h2 { font-size: 2.5rem; text-align: center; margin-bottom: 2.5rem; }
 
 /* --- Header --- */
-.main-header { background: var(--white); padding: 1rem 5%; position: fixed; width: 100%; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+.main-header { background: transparent; padding: 1rem 5%; position: fixed; width: 100%; top: 0; z-index: 1000; box-shadow: none; transition: background 0.4s ease, box-shadow 0.4s ease; }
+.main-header.scrolled { background: var(--white); box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
 .navbar { display: flex; justify-content: space-between; align-items: center; }
 .brand-logo a { display: flex; align-items: center; gap: 15px; text-decoration: none; }
-.logo-icon { height: 60px; width: auto; }
-.logo-text { height: 35px; width: auto; }
+.logo-icon { height: 60px; width: auto; transition: filter 0.4s ease; }
+.logo-text { height: 35px; width: auto; transition: filter 0.4s ease; }
+.main-header:not(.scrolled) .logo-icon,
+.main-header:not(.scrolled) .logo-text { filter: brightness(0) invert(1); }
 .nav-links { display: flex; list-style: none; gap: 2rem; align-items: center; }
 .nav-links a { text-decoration: none; color: var(--text-dark); font-weight: 600; transition: var(--transition); padding-bottom: 3px; border-bottom: 2px solid transparent; }
 .nav-links a:hover { color: var(--secondary-color); }
 .nav-links a.active { color: var(--secondary-color); border-bottom-color: var(--secondary-color); }
+
+/* Links blancos cuando el header es transparente (sobre el hero) */
+.main-header:not(.scrolled) .nav-links a { color: white; }
+.main-header:not(.scrolled) .nav-links a:hover { color: rgba(255,255,255,0.75); }
+.main-header:not(.scrolled) .nav-links a.active { color: white; border-bottom-color: white; }
+.main-header:not(.scrolled) .mobile-menu-icon { color: white; }
+
+/* Menú mobile desplegado siempre con texto oscuro (fondo blanco) */
+.main-header:not(.scrolled) .nav-links.active a { color: var(--text-dark); }
+.main-header:not(.scrolled) .nav-links.active a:hover { color: var(--secondary-color); }
+.main-header:not(.scrolled) .nav-links.active a.active { color: var(--secondary-color); border-bottom-color: var(--secondary-color); }
 .btn-reservation { background: var(--primary-color); color: var(--white) !important; padding: 0.7rem 1.5rem; border-radius: 4px; text-transform: uppercase; }
 .mobile-menu-icon { display: none; font-size: 1.8rem; color: var(--primary-color); cursor: pointer; }
 

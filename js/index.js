@@ -57,10 +57,11 @@ if (backToTopBtn) {
     });
 }
 
-// Scroll: navbar highlight + close mobile menu + back to top visibility
+// Scroll: header transparente → opaco + back to top + cerrar menú mobile
+const mainHeader = document.querySelector('.main-header');
+
 window.addEventListener('scroll', () => {
-    const nav = document.querySelector('.navbar');
-    nav.classList.toggle('scrolled', window.scrollY > 50);
+    mainHeader.classList.toggle('scrolled', window.scrollY > 50);
 
     if (backToTopBtn) {
         backToTopBtn.classList.toggle('visible', window.scrollY > 400);
